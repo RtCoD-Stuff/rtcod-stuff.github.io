@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Return to Castle of Dark — Тёмное Фэнтези RPG</title>
+  <meta name="description" content="Return to Castle of Dark — сервер тёмного средневекового фэнтези на Forge 1.20.1. 20 рас, классы, кланы с тавернами, боссы и магия." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="ember-canvas" aria-hidden="true"></canvas>
+
+  <!-- TOP BAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-crest">⚔</span>
+        <span class="brand-stack">
+          <span class="brand-name">Return to Castle</span>
+          <span class="brand-sub">of Dark</span>
+        </span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#world">Мир</a>
+        <a href="#codex">Расы и Классы</a>
+        <a href="#shop">Магазин</a>
+        <a href="#launcher">Лаунчер</a>
+        <a href="#rules">Правила</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="currency-toggle" class="nav-chip" title="Переключить валюту">₽ RUB</button>
+        <a id="nav-discord" href="#" target="_blank" rel="noopener" class="nav-chip">Discord</a>
+        <a href="#launcher" class="btn-play-pill">▶ Играть</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- CINEMATIC HERO (Style 1) -->
+    <section class="hero">
+      <div class="hero-art" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <div class="hero-left">
+          <div class="hero-status">
+            <span class="status-dot" id="status-dot"></span>
+            <span id="server-status-text">Forge 1.20.1 • Тёмное Фэнтези</span>
+          </div>
+
+          <h1 class="hero-title">
+            Return to Castle<br /><span>of Dark</span>
+          </h1>
+
+          <p class="hero-meta">Medieval Dark Fantasy RPG</p>
+          <p class="hero-desc" id="hero-tagline">
+            20 уникальных рас, клановые таверны, древние драконы, запретная магия и 5+ измерений.
+          </p>
+
+          <div class="hero-plates">
+            <a href="#launcher" class="plate-btn plate-bronze">
+              <span>Скачать лаунчер</span>
+            </a>
+            <a href="#codex" class="plate-btn plate-steel">
+              <span>Кодекс рас</span>
+            </a>
+          </div>
+
+          <div class="ip-strip">
+            <span class="ip-tag">IP</span>
+            <code id="server-ip">В разработке • скоро открытие</code>
+            <button id="copy-ip-btn" class="ip-action">Telegram</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHRONICLES / WORLD CARDS (Ornate Gold Cards under Hero) -->
+    <section id="world" class="section section-tight">
+      <div class="container">
+        <div class="section-row-head">
+          <h2>Хроники мира</h2>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="chronicles-grid">
+          <article class="chronicle-card" style="--card-glow: rgba(235, 168, 72, 0.34); --card-accent: #f4ce82;">
+            <div class="chronicle-banner">
+              <span class="chronicle-bg-glyph" aria-hidden="true">🜂</span>
+              <span class="chronicle-medallion">🜂</span>
+              <span class="chronicle-tag">RtCoD Races</span>
+            </div>
+            <div class="chronicle-body">
+              <h3>20 Уникальных Рас</h3>
+              <p>От Вампиров, Оборотней и Драконорождённых до Гигантов и Жителей Тьмы — реальные статы, баффы, дебаффы и активные умения.</p>
+            </div>
+          </article>
+          <article class="chronicle-card" style="--card-glow: rgba(217, 119, 43, 0.34); --card-accent: #fbbf24;">
+            <div class="chronicle-banner">
+              <span class="chronicle-bg-glyph" aria-hidden="true">🏰</span>
+              <span class="chronicle-medallion">🏰</span>
+              <span class="chronicle-tag">RtCoD Clans</span>
+            </div>
+            <div class="chronicle-body">
+              <h3>Кланы и Таверны</h3>
+              <p>Основывай клан — на земле сразу вырастет двухэтажная таверна с общим сундуком на 54 слота, чатом и приватом чанков.</p>
+            </div>
+          </article>
+          <article class="chronicle-card" style="--card-glow: rgba(220, 38, 66, 0.38); --card-accent: #fb7185;">
+            <div class="chronicle-banner">
+              <span class="chronicle-bg-glyph" aria-hidden="true">🐉</span>
+              <span class="chronicle-medallion">🐉</span>
+              <span class="chronicle-tag">Bosses</span>
+            </div>
+            <div class="chronicle-body">
+              <h3>Драконы и Боссы</h3>
+              <p>Ice &amp; Fire, L_Ender's Cataclysm, Born in Chaos, Mowzie's Mobs и авторский мод Dying Realms.</p>
+            </div>
+          </article>
+          <article class="chronicle-card" style="--card-glow: rgba(147, 51, 234, 0.36); --card-accent: #c084fc;">
+            <div class="chronicle-banner">
+              <span class="chronicle-bg-glyph" aria-hidden="true">✦</span>
+              <span class="chronicle-medallion">✦</span>
+              <span class="chronicle-tag">Magic &amp; Combat</span>
+            </div>
+            <div class="chronicle-body">
+              <h3>Магия и Боёвка</h3>
+              <p>Iron's Spells, Ars Nouveau, Better Combat, реликвии, артефакты и дерево пассивных навыков.</p>
+            </div>
+          </article>
+          <article class="chronicle-card" style="--card-glow: rgba(56, 189, 248, 0.32); --card-accent: #7dd3fc;">
+            <div class="chronicle-banner">
+              <span class="chronicle-bg-glyph" aria-hidden="true">🌌</span>
+              <span class="chronicle-medallion">🌌</span>
+              <span class="chronicle-tag">Dimensions</span>
+            </div>
+            <div class="chronicle-body">
+              <h3>5+ Измерений</h3>
+              <p>Aether, Twilight Forest, Blue Skies, обновлённый Энд и мрачные земли Dying Realms.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODEX OF RACES & CLASSES (Style 2) -->
+    <section id="codex" class="section">
+      <div class="container">
+        <div class="codex-frame">
+          <div class="codex-header">
+            <h2 id="codex-title">КОДЕКС РАС</h2>
+            <div class="codex-switch">
+              <button class="codex-tab active" data-codex="races">20 Рас</button>
+              <button class="codex-tab" data-codex="classes">7 Классов</button>
+              <button class="codex-tab" data-codex="blessings">8 Благословений</button>
+            </div>
+          </div>
+
+          <div class="codex-body">
+            <!-- Left selectable list -->
+            <div class="codex-list" id="codex-list" role="listbox" aria-label="Список рас и классов"></div>
+
+            <!-- Center emblem + stats + arrows -->
+            <div class="codex-center">
+              <div class="codex-pedestal" id="codex-pedestal">
+                <div class="pedestal-glow" id="codex-glow"></div>
+                <div class="pedestal-sigil" id="codex-sigil">⚔</div>
+                <div class="pedestal-ring"></div>
+              </div>
+
+              <h3 class="codex-selected-name" id="codex-name">Человек</h3>
+              <p class="codex-rec" id="codex-rec"></p>
+
+              <div class="codex-stats" id="codex-stats"></div>
+
+              <div class="codex-arrows">
+                <button id="codex-prev" class="arrow-btn" aria-label="Предыдущий">❮</button>
+                <span id="codex-counter" class="codex-counter">1 / 20</span>
+                <button id="codex-next" class="arrow-btn" aria-label="Следующий">❯</button>
+              </div>
+            </div>
+
+            <!-- Right lore, buffs, debuffs, ability -->
+            <div class="codex-details">
+              <div class="detail-header-box" id="codex-detail-title">ЧЕЛОВЕК</div>
+              <p class="detail-desc" id="codex-desc"></p>
+
+              <div class="detail-block block-buff">
+                <span class="detail-label">✦ Пассивки и баффы</span>
+                <p id="codex-buffs"></p>
+              </div>
+
+              <div class="detail-block block-debuff">
+                <span class="detail-label">✖ Слабости и дебаффы</span>
+                <p id="codex-debuffs"></p>
+              </div>
+
+              <div class="detail-block block-ability">
+                <span class="detail-label">⚡ Активная способность</span>
+                <p id="codex-ability"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOP -->
+    <section id="shop" class="section section-dark">
+      <div class="container">
+        <div class="section-center-head">
+          <span class="eyebrow">Сокровищница замка</span>
+          <h2>Магазин привилегий и кейсов</h2>
+          <p class="section-desc">Мгновенная автовыдача в игре (<code>/kits</code> и <code>/cases</code>). Оплата картами любых банков.</p>
+        </div>
+
+        <div class="shop-tabs">
+          <button class="tab-btn active" data-tab="ranks">Привилегии</button>
+          <button class="tab-btn" data-tab="cases">Кейсы и ключи</button>
+        </div>
+
+        <div id="shop-ranks" class="shop-grid"></div>
+        <div id="shop-cases" class="shop-grid hidden"></div>
+      </div>
+    </section>
+
+    <!-- LAUNCHER -->
+    <section id="launcher" class="section">
+      <div class="container">
+        <div class="section-center-head">
+          <span class="eyebrow">Вход без лишней возни</span>
+          <h2>Лаунчер Return to Castle of Dark</h2>
+          <p class="section-desc">Сам скачает Forge 1.20.1, актуальные моды и текстуры в отдельную папку, не засоряя твой основной Minecraft.</p>
+        </div>
+
+        <div class="launcher-grid">
+          <div class="ornate-box">
+            <h3>Windows</h3>
+            <p>Установщик <code>.exe</code> для Windows 10/11 (x64) с автообновлением сборки.</p>
+            <a id="dl-win" href="#" class="plate-btn plate-bronze btn-block"><span>Скачать .exe</span></a>
+          </div>
+          <div class="ornate-box">
+            <h3>Linux</h3>
+            <p>Портативный образ <code>.AppImage</code> (Arch / Ubuntu / Fedora, Wayland и X11).</p>
+            <a id="dl-linux" href="#" class="plate-btn plate-steel btn-block"><span>Скачать .AppImage</span></a>
+          </div>
+          <div class="ornate-box">
+            <h3>Как начать</h3>
+            <ol class="steps-list">
+              <li>Скачай и запусти лаунчер RtCoD.</li>
+              <li>Выдели 6–8 GB RAM и введи игровой ник.</li>
+              <li>Нажми «Играть» — сборка установится сама.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section id="rules" class="section section-dark">
+      <div class="container">
+        <div class="section-center-head">
+          <span class="eyebrow">Законы цитадели</span>
+          <h2>Основные правила</h2>
+        </div>
+
+        <div class="rules-grid">
+          <div class="ornate-box rule-row">
+            <span class="rule-num">I</span>
+            <div>
+              <h4>Честная игра</h4>
+              <p>Читы, X-Ray, дюпы и эксплуатация багов караются перманентным баном.</p>
+            </div>
+          </div>
+          <div class="ornate-box rule-row">
+            <span class="rule-num">II</span>
+            <div>
+              <h4>Уважение в чате</h4>
+              <p>Оскорбления, спам и реклама чужих проектов запрещены в общем и клановом чатах.</p>
+            </div>
+          </div>
+          <div class="ornate-box rule-row">
+            <span class="rule-num">III</span>
+            <div>
+              <h4>Кланы и земли</h4>
+              <p>Гриф заприваченных территорий и лаг-машины запрещены. Конфликты решаются в честном PvP.</p>
+            </div>
+          </div>
+          <div class="ornate-box rule-row">
+            <span class="rule-num">IV</span>
+            <div>
+              <h4>Поддержка</h4>
+              <p>Вопросы по донату, лаунчеру или багам — пиши администрации в Discord или Telegram.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong class="footer-brand">Return to Castle of Dark</strong>
+        <p class="footer-copy">Неофициальный сервер Minecraft. Не связан с Mojang AB.</p>
+      </div>
+      <div class="footer-links">
+        <a id="footer-discord" href="#" target="_blank" rel="noopener">Discord</a>
+        <a id="footer-telegram" href="#" target="_blank" rel="noopener">Telegram</a>
+        <a href="#codex">Кодекс</a>
+        <a href="#shop">Магазин</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PURCHASE MODAL -->
+  <div id="buy-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Закрыть">✕</button>
+      <span class="eyebrow" id="modal-category">Покупка</span>
+      <h3 id="modal-title">Товар</h3>
+      <p id="modal-desc" class="modal-desc"></p>
+
+      <label class="field-label" for="player-nick">Твой игровой ник в Minecraft</label>
+      <input id="player-nick" type="text" class="text-input" placeholder="Например: Denegen" maxlength="16" autocomplete="off" />
+
+      <div id="qty-row" class="qty-row hidden">
+        <span class="field-label">Количество ключей</span>
+        <div class="qty-pills">
+          <button type="button" class="qty-btn active" data-qty="1">×1</button>
+          <button type="button" class="qty-btn" data-qty="3">×3</button>
+          <button type="button" class="qty-btn" data-qty="5">×5</button>
+          <button type="button" class="qty-btn" data-qty="10">×10</button>
+        </div>
+      </div>
+
+      <div class="modal-summary">
+        <span>К оплате:</span>
+        <strong id="modal-total">0 ₽</strong>
+      </div>
+
+      <div id="modal-notice" class="modal-notice hidden"></div>
+
+      <button id="confirm-buy-btn" class="plate-btn plate-bronze btn-block"><span>Перейти к оплате картой</span></button>
+      <p class="modal-hint">Оплата через защищённый шлюз (МИР / Visa / Mastercard / СБП). Выдача автоматическая.</p>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="codex-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
