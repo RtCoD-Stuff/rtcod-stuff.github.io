@@ -12,7 +12,7 @@ window.RTCOD_CONFIG = {
   },
 
   links: {
-    discord: "https://discord.gg/JCFDJtrWvF", // Замените на бессрочную ссылку Discord
+    discord: "https://discord.com/invite/9mPS3sXq", // Официальная ссылка-виджет Discord (без автора)
     telegram: "https://t.me/RtCoD_server", // Вставьте реальную ссылку на Telegram-канал
     launcherWin: "https://github.com/RtCoD-Stuff/rtcod-launcher/releases/latest/download/RtCoD-Launcher-Windows.exe",
     launcherLinux: "https://github.com/RtCoD-Stuff/rtcod-launcher/releases/latest/download/RtCoD-Launcher-Linux",
